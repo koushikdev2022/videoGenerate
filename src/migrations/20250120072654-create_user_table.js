@@ -39,6 +39,7 @@ module.exports = {
       role: {
         type: Sequelize.INTEGER,
         defaultValue: 2,
+        comment:'1=admin and 2=users'
       },
       phone: {
         type: Sequelize.STRING,
