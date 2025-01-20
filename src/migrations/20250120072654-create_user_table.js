@@ -3,12 +3,79 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    /**
-     * Add altering commands here.
-     *
-     * Example:
-     * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
-     */
+    await queryInterface.createTable('users', {
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER
+      },
+      username: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true,
+      },
+      password: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      full_name: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      first_name: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      last_name: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      email: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true,
+      },
+      role: {
+        type: Sequelize.INTEGER,
+        defaultValue: 2,
+      },
+      phone: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true,
+      },
+      dob: {
+        type: Sequelize.DATE,
+        allowNull: true,
+      },
+      otp: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+      },
+      otp_expaired_at: {
+        type: Sequelize.DATE,
+        allowNull: true,
+      },
+      is_active: {
+        type: Sequelize.INTEGER,
+        defaultValue: 1,
+      },
+      is_verify: {
+        type: Sequelize.INTEGER,
+        defaultValue: 0,
+      },
+      created_at: {
+        allowNull: false,
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+      },
+      updated_at: {
+        allowNull: false,
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+      },
+    });
   },
 
   async down (queryInterface, Sequelize) {
