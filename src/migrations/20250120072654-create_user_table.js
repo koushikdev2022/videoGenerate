@@ -31,6 +31,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: true,
       },
+      avatar: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
       email: {
         type: Sequelize.STRING,
         allowNull: false,
@@ -65,6 +69,10 @@ module.exports = {
       is_verify: {
         type: Sequelize.INTEGER,
         defaultValue: 0,
+      },
+      refresh_token:{
+        type: Sequelize.TEXT,
+        allowNull: true,
       },
       created_at: {
         allowNull: false,
